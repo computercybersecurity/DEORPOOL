@@ -7,8 +7,10 @@
   },
   "scripts": {
     "test": "scripts/test.sh",
-    "migrate": "rm -rf build && truffle migrate",
-    "verify": "truffle run verify Farm"
+    "dev": "truffle migrate --network kovan --reset",
+    "devverify": "truffle run verify Farm --network kovan",
+    "migrate": "rm -rf build && truffle migrate --network mainnet --reset",
+    "verify": "truffle run verify Farm --network mainnet"
   },
   "license": "ISC",
   "dependencies": {
