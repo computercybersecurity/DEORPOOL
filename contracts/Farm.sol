@@ -214,4 +214,10 @@ contract Farm is Ownable {
         erc20.transfer(_to, _amount);
         paidOut += _amount;
     }
+
+    // Withdraw ERC20 tokens after end block
+    function erc20Withdraw(IERC20 _erc20, address _to) onlyOwner public {
+        uint256 amount = _erc20.balanceOf(address(this));
+        _erc20.transfer(_to, amount);
+    }
 }
