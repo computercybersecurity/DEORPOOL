@@ -27,7 +27,7 @@ INFURA_ID="..."
 ETHERSCAN_API_KEY="..."
 ```
 
-* Deployment to rinkeby is done via [Infura](https://infura.io/).
+* Deployment to kovan is done via [Infura](https://infura.io/).
 * Create an [Etherscan API key](https://etherscan.io/myapikey) for contract verification.
 
 _Forks of this project should also modify `config.json`. Decimals aren't considered in the configuration._
@@ -43,16 +43,16 @@ tests.
 npm run migrate -- --network development
 ```
 
-### Rinkeby
+### Kovan
 
-To deploy on the [Rinkeby](https://rinkeby.io/) Ethereum testnet, make sure your wallet has enough ETH to pay for the
+To deploy on the [kovan](https://kovan.io/) Ethereum testnet, make sure your wallet has enough ETH to pay for the
 GAS.
 
-[Faucet 1](https://testnet.help/en/ethfaucet/rinkeby) | [Faucet 2](https://faucet.rinkeby.io/)
+[Faucet 1](https://testnet.help/en/ethfaucet/kovan) | [Faucet 2](https://faucet.kovan.io/)
 
 ```
-npm run migrate -- --network rinkeby
-npm run verify -- --network rinkeby
+npm run dev
+npm run devverify
 ```
 
 You may also want to verify the ERC20Mock and LPMock contracts on Etherscan.
@@ -67,8 +67,8 @@ _Verification may fail because of rate limits. Just try again._
 ### Ethereum mainnet
 
 ```
-npm run migrate -- --network mainnet
-npm run verify -- --network mainnet
+npm run migrate
+npm run verify
 ```
 
 The account that is used to create the Farm contract should have a sufficient amount of (DEOR) ERC20 to fund the
