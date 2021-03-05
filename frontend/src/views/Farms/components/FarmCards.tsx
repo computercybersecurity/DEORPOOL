@@ -124,7 +124,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
         lpTokenAddress,
         account,
       )
-      setHarvestable(bnToDec(earned, 8)) // Should get decimals from contract or config
+      setHarvestable(bnToDec(earned, 10)) // Should get decimals from contract or config
     }
     if (yam && account) {
       fetchEarned()
@@ -172,11 +172,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               )}
             </Button>
             <StyledInsight>
-              <span>APY</span>
+              {/* <span>APY</span>
               <span>
                 {farmApy}
-              </span>
-              {/* <span>
+              </span> */}
+              <span>
                 {farm.tokenAmount
                   ? (farm.tokenAmount.toNumber() || 0).toLocaleString('en-US')
                   : '-'}{' '}
@@ -187,7 +187,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   ? (farm.wethAmount.toNumber() || 0).toLocaleString('en-US')
                   : '-'}{' '}
                 ETH
-              </span> */}
+              </span>
             </StyledInsight>
           </StyledContent>
         </CardContent>
@@ -252,6 +252,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledRow = styled.div`
   display: flex;
+  margin-top: ${(props) => props.theme.spacing[4]}px;
   margin-bottom: ${(props) => props.theme.spacing[4]}px;
   flex-flow: row wrap;
   @media (max-width: 768px) {
