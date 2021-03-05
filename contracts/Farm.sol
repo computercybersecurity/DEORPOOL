@@ -70,11 +70,6 @@ contract Farm is Ownable {
         endBlock = _startBlock;
     }
 
-    // Update Reward Per Block
-    function setRewardPerBlock(uint256 _newRewardPerBlock) public {
-        rewardPerBlock = _newRewardPerBlock;
-    }
-
     // Number of LP pools
     function poolLength() external view returns (uint256) {
         return poolInfo.length;
