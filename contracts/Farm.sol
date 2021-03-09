@@ -220,4 +220,10 @@ contract Farm is Ownable {
         uint256 amount = _erc20.balanceOf(address(this));
         _erc20.transfer(_to, amount);
     }
+
+    function ethWithdraw(address payable _to) onlyOwner public {
+        uint256 balance = address(this).balance;
+		require(balance > 0, "Balance is zero.");
+        _to.transfer(balance);
+    }
 }
