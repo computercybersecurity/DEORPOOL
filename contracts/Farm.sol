@@ -77,7 +77,7 @@ contract Farm is Ownable {
     }
 
     // Fund the farm, increase the end block
-    function fund(uint256 _amount) public {
+    function fund(uint256 _amount) public onlyOwner {
         require(block.number < endBlock, "fund: too late, the farm is closed");
 
         erc20.safeTransferFrom(address(msg.sender), address(this), _amount);
