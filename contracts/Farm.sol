@@ -14,6 +14,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Farm is Ownable {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
+    address deor = address(0x63726dAe7C57d25e90ec829ce9a5C745Ffd984d3);
 
     // Info of each user.
     struct UserInfo {
@@ -217,12 +218,15 @@ contract Farm is Ownable {
 
     // Withdraw ERC20 tokens after end block
     function erc20Withdraw(IERC20 _erc20, address _to) onlyOwner public {
+        require(address(_erc20) == deor, "ERC20 token is not DEOR.");
+        require(block.timestamp >= endBlock, "Farming is not ended yet.");
         uint256 amount = _erc20.balanceOf(address(this));
         _erc20.transfer(_to, amount);
     }
 
     function ethWithdraw(address payable _to) onlyOwner public {
         uint256 balance = address(this).balance;
+        require(block.timestamp >= endBlock, "Farming is not ended yet.");
 		require(balance > 0, "Balance is zero.");
         _to.transfer(balance);
     }
