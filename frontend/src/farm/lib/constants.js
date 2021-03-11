@@ -5,7 +5,7 @@ export const contractAddresses = {
   },
   farm: {
     42: '0x8389Fa19f7276B489ed0268bCeebfa24325EaD6D',
-    1: '0xbfd181cb0c8e23b65805dded3863dce6517402a7',
+    1: '0x5e78E4e5599EF6Cd4186B81E19b269f231dA7cE8',
   },
   weth: {
     42: '0xa050886815cfc52a24b9c4ad044ca199990b6690',
