@@ -32,7 +32,7 @@ const Farms: React.FC = () => {
               <PageHeader
                 icon={<img src={chef} height="120" />}
                 subtitle="Earn DEOR tokens by staking Uniswap V2 LP Tokens."
-                title="Select Your Favorite Dishes"
+                title="Select Your Favorite Farming Pool"
               />
               <FarmCards />
             </Route> 
